@@ -101,6 +101,31 @@ matrix:
           env: GROUP=python
         - python: 3.6
           env: GROUP=docs
+        # Adding ppc64le jobs
+        - python: 3.6
+          arch: ppc64le
+          env:
+          - GROUP=selenium
+          - JUPYTER_TEST_BROWSER=firefox
+          - MOZ_HEADLESS=1
+          addons:
+            firefox: 57.0
+        - python: 3.5
+          arch: ppc64le
+          env: GROUP=python
+        - python: 3.7
+          arch: ppc64le
+          dist: xenial
+          env: GROUP=python
+        - python: 3.8
+          arch: ppc64le
+          env: GROUP=python
+        - python: 3.9-dev
+          arch: ppc64le
+          env: GROUP=python
+        - python: 3.6
+          arch: ppc64le
+          env: GROUP=docs
 
 after_success:
     - codecov
